@@ -1,0 +1,342 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* byte+ design system — clean clinical light UI.
+   All colors HSL. Use semantic tokens — never hard-coded colors. */
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 25% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 25% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 25% 12%;
+
+    /* Brand */
+    --primary: 222 25% 12%;            /* near-black for "byte" */
+    --primary-foreground: 0 0% 100%;
+
+    --brand-blue: 220 95% 56%;          /* the "+" */
+    --brand-blue-foreground: 0 0% 100%;
+
+    /* Surfaces */
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 222 25% 12%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+
+    --accent: 220 14% 96%;
+    --accent-foreground: 222 25% 12%;
+
+    --surface: 220 20% 98.8%;           /* very light gray cards */
+    --surface-elevated: 0 0% 100%;
+    --surface-border: 220 13% 91%;
+
+    --destructive: 0 78% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 220 95% 56%;
+
+    --radius: 1rem;
+
+    /* Status — pill backgrounds + foregrounds */
+    --status-optimal-bg: 142 70% 92%;
+    --status-optimal-fg: 142 65% 28%;
+
+    --status-normal-bg: 38 95% 90%;
+    --status-normal-fg: 30 75% 35%;
+
+    --status-attention-bg: 14 95% 92%;
+    --status-attention-fg: 14 80% 42%;
+
+    --status-critical-bg: 350 90% 94%;
+    --status-critical-fg: 350 75% 42%;
+
+    --status-neutral-bg: 220 14% 93%;
+    --status-neutral-fg: 220 15% 35%;
+
+    /* Trend */
+    --trend-up: 142 65% 40%;
+    --trend-down: 350 75% 55%;
+
+    /* Source tags (exercise plan context) */
+    --tag-inbody-bg: 215 90% 94%;
+    --tag-inbody-fg: 215 75% 38%;
+    --tag-blood-bg: 350 90% 94%;
+    --tag-blood-fg: 350 70% 42%;
+    --tag-wearable-bg: 142 70% 92%;
+    --tag-wearable-fg: 142 60% 28%;
+    --tag-ortho-bg: 30 90% 92%;
+    --tag-ortho-fg: 28 75% 38%;
+    --tag-athlete-bg: 270 70% 94%;
+    --tag-athlete-fg: 270 55% 42%;
+
+    /* Specialty tags (clinical notes) */
+    --spec-ortho-bg: 28 90% 92%;
+    --spec-ortho-fg: 28 75% 38%;
+    --spec-nutrition-bg: 142 70% 92%;
+    --spec-nutrition-fg: 142 60% 28%;
+    --spec-physio-bg: 270 70% 94%;
+    --spec-physio-fg: 270 55% 42%;
+
+    /* Day-type pills (exercise plan) */
+    --day-chest-bg: 350 90% 94%;
+    --day-chest-fg: 350 70% 42%;
+    --day-back-bg: 215 90% 94%;
+    --day-back-fg: 215 75% 38%;
+    --day-shoulder-bg: 142 70% 92%;
+    --day-shoulder-fg: 142 60% 28%;
+    --day-arms-bg: 30 90% 92%;
+    --day-arms-fg: 28 75% 38%;
+    --day-leg-bg: 50 95% 88%;
+    --day-leg-fg: 38 75% 35%;
+    --day-rest-bg: 220 14% 95%;
+    --day-rest-fg: 220 9% 46%;
+
+    /* Noor */
+    --noor-from: 250 55% 18%;
+    --noor-to: 222 60% 28%;
+    --noor-bubble: 220 95% 56%;
+
+    /* Shadows / motion */
+    --shadow-card: 0 1px 2px hsl(220 25% 12% / 0.04), 0 4px 16px hsl(220 25% 12% / 0.04);
+    --shadow-pop: 0 8px 28px hsl(220 25% 12% / 0.10);
+    --transition-base: 200ms cubic-bezier(0.2, 0.8, 0.2, 1);
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 222 25% 12%;
+    --sidebar-primary: 220 95% 56%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 14% 96%;
+    --sidebar-accent-foreground: 222 25% 12%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 220 95% 56%;
+  }
+
+  .dark {
+    --background: 222 28% 7%;
+    --foreground: 220 15% 92%;
+
+    --card: 222 25% 10%;
+    --card-foreground: 220 15% 92%;
+
+    --popover: 222 25% 10%;
+    --popover-foreground: 220 15% 92%;
+
+    --primary: 220 15% 95%;
+    --primary-foreground: 222 28% 8%;
+
+    --brand-blue: 220 95% 62%;
+    --brand-blue-foreground: 0 0% 100%;
+
+    --secondary: 222 20% 14%;
+    --secondary-foreground: 220 15% 92%;
+
+    --muted: 222 20% 14%;
+    --muted-foreground: 220 10% 65%;
+
+    --accent: 222 20% 16%;
+    --accent-foreground: 220 15% 92%;
+
+    --surface: 222 24% 11%;
+    --surface-elevated: 222 24% 13%;
+    --surface-border: 222 18% 20%;
+
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 222 18% 20%;
+    --input: 222 18% 20%;
+    --ring: 220 95% 62%;
+
+    /* Status — keep hue, deepen bg + brighten fg */
+    --status-optimal-bg: 142 40% 18%;
+    --status-optimal-fg: 142 65% 70%;
+
+    --status-normal-bg: 38 50% 18%;
+    --status-normal-fg: 38 90% 70%;
+
+    --status-attention-bg: 14 55% 20%;
+    --status-attention-fg: 14 90% 72%;
+
+    --status-critical-bg: 350 50% 22%;
+    --status-critical-fg: 350 90% 75%;
+
+    --status-neutral-bg: 222 18% 18%;
+    --status-neutral-fg: 220 12% 75%;
+
+    --trend-up: 142 65% 60%;
+    --trend-down: 350 80% 68%;
+
+    --tag-inbody-bg: 215 50% 20%;
+    --tag-inbody-fg: 215 85% 75%;
+    --tag-blood-bg: 350 50% 20%;
+    --tag-blood-fg: 350 85% 75%;
+    --tag-wearable-bg: 142 40% 18%;
+    --tag-wearable-fg: 142 65% 72%;
+    --tag-ortho-bg: 28 50% 20%;
+    --tag-ortho-fg: 28 85% 72%;
+    --tag-athlete-bg: 270 40% 22%;
+    --tag-athlete-fg: 270 70% 78%;
+
+    --spec-ortho-bg: 28 50% 20%;
+    --spec-ortho-fg: 28 85% 72%;
+    --spec-nutrition-bg: 142 40% 18%;
+    --spec-nutrition-fg: 142 65% 72%;
+    --spec-physio-bg: 270 40% 22%;
+    --spec-physio-fg: 270 70% 78%;
+
+    --day-chest-bg: 350 50% 20%;
+    --day-chest-fg: 350 85% 75%;
+    --day-back-bg: 215 50% 20%;
+    --day-back-fg: 215 85% 75%;
+    --day-shoulder-bg: 142 40% 18%;
+    --day-shoulder-fg: 142 65% 72%;
+    --day-arms-bg: 28 50% 20%;
+    --day-arms-fg: 28 85% 72%;
+    --day-leg-bg: 50 55% 20%;
+    --day-leg-fg: 50 90% 72%;
+    --day-rest-bg: 222 18% 18%;
+    --day-rest-fg: 220 10% 70%;
+
+    --noor-from: 250 55% 22%;
+    --noor-to: 222 60% 32%;
+    --noor-bubble: 220 95% 62%;
+
+    --shadow-card: 0 1px 2px hsl(0 0% 0% / 0.4), 0 4px 16px hsl(0 0% 0% / 0.3);
+    --shadow-pop: 0 8px 28px hsl(0 0% 0% / 0.5);
+
+    --sidebar-background: 222 25% 10%;
+    --sidebar-foreground: 220 15% 92%;
+    --sidebar-primary: 220 95% 62%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 222 20% 14%;
+    --sidebar-accent-foreground: 220 15% 92%;
+    --sidebar-border: 222 18% 20%;
+    --sidebar-ring: 220 95% 62%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html, body, #root {
+    height: 100%;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-feature-settings: 'cv11', 'ss01';
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer components {
+  /* Status pill */
+  .pill {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium whitespace-nowrap;
+  }
+
+  /* Soft elevated card */
+  .surface-card {
+    background: hsl(var(--surface));
+    border: 1px solid hsl(var(--surface-border) / 0.6);
+    border-radius: var(--radius);
+  }
+
+  /* Primary action — dark pill, used for Publish / Create / Regenerate etc. */
+  .btn-primary-pill {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-opacity disabled:opacity-40;
+    background: hsl(var(--foreground));
+    color: hsl(var(--background));
+  }
+  .btn-primary-pill:hover:not(:disabled) { opacity: 0.9; }
+
+  /* Secondary action — surface pill, sits next to .btn-primary-pill */
+  .btn-surface-pill {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-colors;
+    background: hsl(var(--surface));
+    border: 1px solid hsl(var(--surface-border) / 0.6);
+    color: hsl(var(--foreground));
+  }
+  .btn-surface-pill:hover { background: hsl(var(--background)); }
+
+  /* Inline keyboard hint */
+  .kbd {
+    @apply inline-flex items-center gap-1 text-[10px] font-mono text-muted-foreground border border-border rounded px-1.5 py-0.5;
+    background: hsl(var(--surface));
+  }
+
+  /* Filter pill (Company / User dropdown) */
+  .filter-pill {
+    @apply inline-flex items-center justify-between gap-3 px-5 py-2.5 rounded-full text-sm font-medium;
+    background: hsl(var(--surface));
+    border: 1px solid hsl(var(--surface-border) / 0.6);
+    box-shadow: var(--shadow-card);
+    transition: var(--transition-base);
+  }
+  .filter-pill:hover { box-shadow: var(--shadow-pop); }
+
+  /* Top tab bar (Reports / Profile / ...) */
+  .tab-bar {
+    @apply flex items-center gap-1 p-1.5 rounded-full;
+    background: hsl(var(--surface));
+    border: 1px solid hsl(var(--surface-border) / 0.6);
+    box-shadow: var(--shadow-card);
+  }
+  .tab-item {
+    @apply inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-medium text-muted-foreground transition-colors;
+  }
+  .tab-item:hover { color: hsl(var(--foreground)); }
+  .tab-item[data-active="true"] {
+    color: hsl(var(--brand-blue));
+    background: hsl(var(--background));
+  }
+
+  /* "byte+" wordmark */
+  .wordmark {
+    @apply text-2xl font-extrabold tracking-tight leading-none;
+    color: hsl(var(--primary));
+  }
+  .wordmark .plus { color: hsl(var(--brand-blue)); }
+
+  /* Noor avatar gradient */
+  .noor-orb {
+    background: radial-gradient(circle at 30% 30%, hsl(220 95% 70%) 0%, hsl(var(--noor-from)) 55%, hsl(250 80% 8%) 100%);
+  }
+
+  /* Chat bubbles */
+  .bubble-user {
+    @apply rounded-full px-4 py-2 text-sm font-medium text-primary-foreground;
+    background: hsl(var(--noor-bubble));
+  }
+
+  /* Source / specialty tag */
+  .tag {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-md text-[11px] font-semibold uppercase tracking-wide;
+  }
+
+  /* Subtle table row separator */
+  .row-sep > * + * { border-top: 1px solid hsl(var(--surface-border) / 0.6); }
+
+  /* Animated gradient ring around Noor */
+  @keyframes orb-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 hsl(var(--noor-from) / 0.45); }
+    50%     { box-shadow: 0 0 0 10px hsl(var(--noor-from) / 0); }
+  }
+  .noor-pulse { animation: orb-pulse 5.5s ease-out infinite; }
+
+  @keyframes drawer-in {
+    from { transform: translateX(-12px); opacity: 0; }
+    to   { transform: translateX(0); opacity: 1; }
+  }
+  .drawer-in { animation: drawer-in 240ms cubic-bezier(0.2, 0.8, 0.2, 1); }
+}
